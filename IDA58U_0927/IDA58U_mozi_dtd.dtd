@@ -1,0 +1,16 @@
+<!DOCTYPE film [
+    <!ELEMENT mozi (film*)>
+    <!ELEMENT film (rendezo+,szinesz+,iro+)>
+    <!ELEMENT rendezo (#PCDATA)>
+    <!ELEMENT szinesz (#PCDATA)>
+    <!ELEMENT iro (#PCDATA)>
+
+    <!ATTLIST film id ID #REQUIRED>
+    <!ATTLIST film mufaj (horror|komédia|dráma) "dráma">
+
+    <!ATTLIST rendezo id ID #REQUIRED>
+    <!ATTLIST rendezo nev>
+
+    <!ATTLIST szinesz id ID #REQUIRED>
+    <!ATTLIST szinesz nev>
+]>
