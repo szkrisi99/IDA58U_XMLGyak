@@ -1,0 +1,24 @@
+<orarend>
+    <ora id="1" tipus="eloadas">
+        <targy></targy>
+        <idopont>
+            <nap></nap>
+            <tol></tol>
+            <ig></ig>
+        </idopont>
+        <helyszin></helyszin>
+        <oktato></oktato>
+        <szak></szak>
+    </ora>
+    <ora id="2" tipus="gyakorlat">
+        <targy></targy>
+        <idopont>
+            <nap></nap>
+            <tol></tol>
+            <ig></ig>
+        </idopont>
+        <helyszin></helyszin>
+        <oktato></oktato>
+        <szak></szak>
+    </ora>
+</orarend>
