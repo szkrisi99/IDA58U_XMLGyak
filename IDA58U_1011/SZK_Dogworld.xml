@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<konyvek xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="SZK_Dogworld.xsd">
+    <konyv isbn="0836217462">
+        <cim></cim>
+        <szerzo></szerzo>
+        <szereplo>
+            <nev></nev>
+            <baratja></baratja>
+            <szuletett></szuletett>
+            <jellemzes></jellemzes>
+        </szereplo>
+        <szereplo>
+            <nev></nev>
+            <szuletett></szuletett>
+            <jellemzes></jellemzes>
+        </szereplo>
+    </konyv>
+</konyvek>
