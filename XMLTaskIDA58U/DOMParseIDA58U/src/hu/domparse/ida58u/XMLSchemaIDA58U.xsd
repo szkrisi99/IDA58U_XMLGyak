@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified"
+	attributeFormDefault="qualified">
+	
+	<xs:attribute name="TID" type="xs:integer"/>
+    <xs:attribute name="TIDRef" type="xs:integer"/>
+    <xs:attribute name="EtID" type="xs:integer"/> 
+    <xs:attribute name="EtIDRef" type="xs:integer"/> 
+    <xs:attribute name="EtelID" type="xs:integer"/> 
+    <xs:attribute name="EtelIDRef" type="xs:integer"/>  
+    <xs:attribute name="VID" type="xs:integer"/>
+    <xs:attribute name="VIDRef" type="xs:integer"/>
+
+	<xs:complexType name="Tulajdonos_tipus">
+		<xs:sequence>
+			<xs:element name="Nev" type="xs:string"/>
+			<xs:element name="Eletkor" type="xs:integer"/>
+			<xs:element name="Szulido" type="xs:integer"/>
+			
+		</xs:sequence>
+		<xs:attribute ref="TID" use="required"/>
+	</xs:complexType>
+
+	<xs:complexType name="Etterem_tipus">
+		<xs:sequence>
+			<xs:element name="Nev" type="xs:string"/>
+			<xs:element name="Telefonszam" type="xs:integer"/>
+			<xs:element name="Cim" type="Cim_tipus" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute ref="EtID" use="required"/>
+		<xs:attribute ref="TIDRef" use="required"/>
+	</xs:complexType>
+
+	<xs:complexType name="Cim_tipus">
+		<xs:sequence>
+			<xs:element name="Irszam" type="xs:string"/>
+			<xs:element name="Varos" type="xs:string"/>
+			<xs:element name="Utca" type="xs:string"/>
+			<xs:element name="Hazszam" type="xs:integer"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Kesziti_tipus">
+		<xs:sequence>
+			<xs:element name="Stilus" type="xs:string"/>
+		</xs:sequence>
+		<xs:attribute ref="EtelID" use="required"/>
+		<xs:attribute ref="EtelIDRef" use="required"/>
+	</xs:complexType>
+
+	<xs:complexType name="Etel_tipus">
+		<xs:sequence>
+			<xs:element name="Nev" type="xs:string"/>
+			<xs:element name="Ar" type="xs:integer"/>
+			<xs:element name="Koret" type="xs:string" maxOccurs="unbounded" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute ref="EtelID" use="required"/>
+	</xs:complexType>
+
+	<xs:complexType name="Megveszi_tipus">
+		<xs:sequence>
+			<xs:element name="Tranzakcio" type="xs:integer"/>
+		</xs:sequence>
+		<xs:attribute ref="EtelIDRef" use="required"/>
+		<xs:attribute ref="VIDRef" use="required"/>
+	</xs:complexType>
+
+	<xs:complexType name="Vevo_tipus">
+		<xs:sequence>
+			<xs:element name="Nev" type="xs:string"/>
+			<xs:element name="Telefonszam" type="xs:integer"/>
+			<xs:element name="Cim" type="Cim_tipus" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute ref="VID" use="required"/>
+	</xs:complexType>
+
+	<xs:complexType name="Tulajdonosok_tipus">
+        <xs:sequence>
+            <xs:element name="Tulajdonos" type="Tulajdonos_tipus" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+	<xs:complexType name="Ettermek_tipus">
+        <xs:sequence>
+            <xs:element name="Etterem" type="Etterem_tipus" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+	<xs:complexType name="Keszitesek_tipus">
+        <xs:sequence>
+            <xs:element name="Kesziti" type="Kesziti_tipus" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+	<xs:complexType name="Etelek_tipus">
+        <xs:sequence>
+            <xs:element name="Etel" type="Etel_tipus" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+	<xs:complexType name="Vasarlasok_tipus">
+        <xs:sequence>
+            <xs:element name="Megveszi" type="Megveszi_tipus" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+	<xs:complexType name="Vevok_tipus">
+        <xs:sequence>
+            <xs:element name="Vevo" type="Vevo_tipus" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+	<xs:element name="Etteremlanc">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Tulajdonosok" type="Tulajdonosok_tipus"/>
+                <xs:element name="Ettermek" type="Ettermek_tipus"/>
+                <xs:element name="Keszitesek" type="Keszitesek_tipus"/>
+                <xs:element name="Etelek" type="Etelek_tipus"/>
+                <xs:element name="Vasarlasok" type="Vasarlasok_tipus"/>
+				<xs:element name="Vevok" type="Vevok_tipus"/>
+            </xs:sequence>
+        </xs:complexType>
+
+		<xs:key name="Tulajdonos_EKulcs">
+            <xs:selector xpath="Tulajdonosok/Tulajdonos"/>
+            <xs:field xpath="@TID"/>
+        </xs:key>
+
+		<xs:key name="Etterem_EKulcs">
+            <xs:selector xpath="Ettermek/Etterem"/>
+            <xs:field xpath="@PiID"/>
+        </xs:key>
+
+		<xs:key name="Etel_EKulcs">
+            <xs:selector xpath="Etelek/Etle"/>
+            <xs:field xpath="@PID"/>
+        </xs:key>
+
+		<xs:key name="Vevo_EKulcs">
+            <xs:selector xpath="Vevok/Vevo"/>
+            <xs:field xpath="@VID"/>
+        </xs:key>
+
+		<xs:keyref name="Tulajdonos_IKulcs" refer="Tulajdonos_EKulcs">
+            <xs:selector xpath="Ettermek/Etterem"/>
+            <xs:field xpath="@TIDRef"/>
+        </xs:keyref>
+
+		<xs:keyref name="Etterem_IKulcs" refer="Etterem_EKulcs">
+            <xs:selector xpath="Reszvetelek/Reszvetel"/>
+            <xs:field xpath="@PiIDRef"/>
+        </xs:keyref>
+
+		<xs:keyref name="Etel_IKulcs" refer="Etel_EKulcs">
+            <xs:selector xpath="Vasarlasok/Megveszi"/>
+            <xs:field xpath="@PIDRef"/>
+        </xs:keyref>
+
+		<xs:keyref name="Vevo_IKulcs" refer="Vevo_EKulcs">
+            <xs:selector xpath="Vasarlasok/Megveszi"/>
+            <xs:field xpath="@VIDRef"/>
+        </xs:keyref>
+	</xs:element>	
+</xs:schema>

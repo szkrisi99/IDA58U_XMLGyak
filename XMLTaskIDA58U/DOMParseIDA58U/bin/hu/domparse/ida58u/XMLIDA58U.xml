@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Etteremlanc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XMLSchemaEJX162.xsd">
+	
+	<Tulajdonosok>
+	
+		<Tulajdonos TID="1">
+			<Nev>Nagy Béla</Nev>
+			<Eletkor>26</Eletkor>
+			<Szulido>1997</Szulido>
+		</Tulajdonos>
+		
+		<Tulajdonos TID="2">
+			<Nev>Balázs Dominika</Nev>
+			<Eletkor>25</Eletkor>
+			<Szulido>1998</Szulido>
+		</Tulajdonos>
+		
+		<Tulajdonos TID="3">
+			<Nev>Kiss Imre</Nev>
+			<Eletkor>23</Eletkor>
+			<Szulido>2000</Szulido>
+		</Tulajdonos>
+		
+	</Tulajdonosok>
+	
+	<Ettermek>
+		<Etterem EtID="1" TIDRef="1">
+			<Nev>Italian Stallion</Nev>
+			<Telefonszam>012432123</Telefonszam>
+			<Cim>
+				<Irszam>1256</Irszam>
+				<Varos>Budapest</Varos>
+				<Utca>Ferencziek útja</Utca>
+				<Hazszam>14</Hazszam>
+			</Cim>
+		</Etterem>
+		
+		<Etterem EtID="2" TIDRef="2">
+			<Nev>New York Style</Nev>
+			<Telefonszam>05618478</Telefonszam>
+			<Cim>
+				<Irszam>3525</Irszam>
+				<Varos>Miskolc</Varos>
+				<Utca>Széchenyi István út</Utca>
+				<Hazszam>26</Hazszam>
+			</Cim>
+		</Etterem>
+		
+		<Etterem EtID="3" TIDRef="3">
+			<Nev>Véndiófa étterem</Nev>
+			<Telefonszam>063025698812</Telefonszam>
+			<Cim>
+				<Irszam>3540</Irszam>
+				<Varos>Miskolc</Varos>
+				<Utca>Árpád utca</Utca>
+				<Hazszam>6</Hazszam>
+			</Cim>
+		</Etterem>
+	</Ettermek>
+	
+	<Keszitesek>
+		<Kesziti EtelIDRef="1" EtelID="1">
+			<Stilus>Előétel</Stilus>
+		</Kesziti>
+
+		<Kesziti EtelIDRef="2" EtelID="2">
+			<Stilus>Főétel</Stilus>
+		</Kesziti>
+
+		<Kesziti EtelIDRef="3" EtelID="3">
+			<Stilus>Desszert</Stilus>
+		</Kesziti>
+	</Keszitesek>
+
+	<Etelek>
+		<Etel EtelID="1">
+			<Nev>Pacalpörkölt</Nev>
+			<Ar>4500</Ar>
+			<Koret>Krumplipüré</Koret>
+		</Etel>
+		
+		<Etel EtelID="2">
+			<Nev>Rántotthús</Nev>
+			<Ar>3200</Ar>
+			<Koret>Sültkrumpli</Koret>
+			<Koret>Káposztasaláta</Koret>
+		</Etel>
+		
+		<Etel EtelID="3">
+			<Nev>Spagetti</Nev>
+			<Ar>2800</Ar>
+		</Etel>
+		
+		<Etel EtelID="4">
+			<Nev>Kacsacomb</Nev>
+			<Ar>4600</Ar>
+			<Koret>Steakburgonya</Koret>
+			<Koret>Mártás</Koret>
+			<Koret>Céklasaláta</Koret>
+		</Etel>
+		
+		<Etel EtelID="5">
+			<Nev>Burjósült</Nev>
+			<Ar>6600</Ar>
+			<Koret>Hagymakarika</Koret>
+			<Koret>Grillezett zöldség</Koret>
+		</Etel>
+	</Etelek>
+
+	<Vasarlasok>
+		<Megveszi EtelIDRef="1" VIDRef="1">
+			<Tranzakcio>123</Tranzakcio>
+		</Megveszi>
+
+		<Megveszi EtelIDRef="2" VIDRef="2">
+			<Tranzakcio>456</Tranzakcio>
+		</Megveszi>
+
+		<Megveszi EtelIDRef="3" VIDRef="3">
+			<Tranzakcio>789</Tranzakcio>
+		</Megveszi>
+	</Vasarlasok>
+	
+	<Vevok>
+		<Vevo VID="1">
+			<Nev>Nagy Ferenc</Nev>
+			<Telefonszam>06702586633</Telefonszam>
+			<Cim>
+				<Irszam>3519</Irszam>
+				<Varos>Miskolc</Varos>
+				<Utca>Fenyő utca</Utca>
+				<Hazszam>23</Hazszam>
+			</Cim>
+		</Vevo>
+		
+		<Vevo VID="2">
+			<Nev>Novák Balázs</Nev>
+			<Telefonszam>06304455982</Telefonszam>
+			<Cim>
+				<Irszam>1149</Irszam>
+				<Varos>Budapest</Varos>
+				<Utca>Vezér utca</Utca>
+				<Hazszam>149</Hazszam>
+			</Cim>
+		</Vevo>
+		
+		<Vevo VID="3">
+			<Nev>Szabó Dominik</Nev>
+			<Telefonszam>06205981274</Telefonszam>
+			<Cim>
+				<Irszam>3530</Irszam>
+				<Varos>Miskolc</Varos>
+				<Utca>Pattantyús utca</Utca>
+				<Hazszam>14</Hazszam>
+			</Cim>
+		</Vevo>
+	</Vevok>
+	
+</Etteremlanc>
